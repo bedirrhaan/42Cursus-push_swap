@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:13:09 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/03 21:43:58 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:46:18 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,17 @@ void	rb(t_stack *stack)
 	}
 	stack->b[i - 1] = swap;
 	write (1, "rb\n", 3);
+}
+
+void	rrb(t_stack *stack)
+{
+	int	i;
+	int	swap;
+
+	swap = stack->b[stack->size_b - 1];
+	i = stack->size_b;
+	while (--i >= 0)
+		stack->b[i + 1] = stack->b[i];
+	stack->b[0] = swap;
+	write (1, "rrb\n", 4);
 }

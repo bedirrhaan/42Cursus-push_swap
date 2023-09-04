@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:40:08 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/03 21:41:30 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:25:40 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void	pa(t_stack *stack);
 void	sb(t_stack *stack);
 void	pb(t_stack *stack);
 void	ss(t_stack *stack);
+void	rra(t_stack *stack);
+void	rrb(t_stack *stack);
+void	rrr(t_stack *stack);
 
 #endif

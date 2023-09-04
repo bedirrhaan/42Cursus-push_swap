@@ -6,12 +6,13 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:48:38 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/03 21:47:19 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:45:59 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
+#include <stdio.h>
 
 void	ss(t_stack *stack)
 {
@@ -32,7 +33,6 @@ void	ss(t_stack *stack)
 	swap = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = swap;
-	write (1, "sb\n", 3);
 	write (1, "ss\n", 3);
 }
 
@@ -59,5 +59,23 @@ void	rr(t_stack *stack)
 		i++;
 	}
 	stack->b[i - 1] = swap;
-	write (1, "rr\n" 3);
+	write (1, "rr\n", 3);
+}
+
+void	rrr(t_stack *stack)
+{
+	int	i;
+	int	swap;
+
+	swap = stack->a[stack->size_a - 1];
+	i = stack->size_a;
+	while (--i >= 0)
+		stack->a[i + 1] = stack->a[i];
+	stack->a[0] = swap;
+	swap = stack->b[stack->size_b - 1];
+	i = stack->size_b;
+	while (--i >= 0)
+		stack->b[i + 1] = stack->b[i];
+	stack->b[0] = swap;
+	write (1, "rrr\n", 4);
 }

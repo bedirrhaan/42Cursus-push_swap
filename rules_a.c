@@ -6,12 +6,13 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:39 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/03 21:40:53 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:43:47 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
+#include <unistd.h>
 #include <stdio.h>
 
 void	sa(t_stack	*stack)
@@ -67,4 +68,17 @@ void	ra(t_stack *stack)
 	}
 	stack->a[i - 1] = swap;
 	write (1, "ra\n", 3);
+}
+
+void	rra(t_stack *stack)
+{
+	int	i;
+	int	swap;
+
+	swap = stack->a[stack->size_a - 1];
+	i = stack->size_a;
+	while (--i >= 0)
+		stack->a[i + 1] = stack->a[i];
+	stack->a[0] = swap;
+	write (1, "rra\n", 4);
 }
