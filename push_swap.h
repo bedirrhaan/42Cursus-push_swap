@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:40:08 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 16:54:09 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/05 21:31:58 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int		*ft_ps_atoi(char **array, int size);
 void	ft_check_repeat(int *stack, int size);
 int		check_list(t_stack *stack);
 void	ft_error(int *stack);
+int	check_sorted(int *array, int size);
 void	sa(t_stack	*stack);
 void	ra(t_stack *stack);
 void	pa(t_stack *stack);
@@ -39,7 +40,7 @@ void	ss(t_stack *stack);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
-void	quicksort_3a(t_stack *stack);
-void	quicksort_3b(t_stack *stack);
+void	ft_sort_three(t_stack *s);
+
 
 #endif

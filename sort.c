@@ -6,66 +6,44 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:21:42 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 16:55:35 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/05 21:34:24 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	quicksort_3a(t_stack *stack)
+int	ft_sort(t_stack *stack)
 {
-	if (stack->size_a == 3)
+	if (check_sorted(stack->a, stack->size_a) == 0)
 	{
-		if (stack->a[0] > stack->a[1] && stack->a[1] > stack->a[2])
-		{
-			ra(stack);
-			sa(stack);
-		}
-		else if (stack->a[0] > stack->a[2] && stack->a[2] > stack->a[1])
-		{
-			ra(stack);
-		}
-		else if (stack->a[1] > stack->a[2] && stack->a[2] > stack->a[0])
-		{
-			rra(stack);
-			sa(stack);
-		}
-		else if (stack->a[1] > stack->a[0] && stack->a[0] > stack->a[2])
-		{
-			rra(stack);
-		}
-		else if (stack->a[2] > stack->a[0] && stack->a[0] > stack->a[1])
-		{
-			sa(stack);
-		}
+		if (stack->size_a == 2)
+			sa(&stack);
+		else if (stack->size_a == 3)
+			ft_sort_three(&stack);
+		else
+			ft_quicksort_a();
 	}
+	return (0);
 }
 
-void	quicksort_3b(t_stack *stack)
+void	ft_sort_three(t_stack *s)
 {
-	if (stack->size_b == 3)
+	if (s->a[0] > s->a[1] && s->a[0] < s->a[2] && s->a[1] < s->a[2])
+		sa(s);
+	if (s->a[0] > s->a[1] && s->a[0] > s->a[2] && s->a[1] > s->a[2])
 	{
-		if (stack->b[0] > stack->b[1] && stack->b[1] > stack->b[2])
-		{
-			ra(stack);
-			sa(stack);
-		}
-		else if (stack->b[0] > stack->b[2] && stack->b[2] > stack->b[1])
-		{
-			ra(stack);
-		}
-		else if (stack->b[1] > stack->b[2] && stack->b[2] > stack->b[0])
-		{
-			rra(stack);
-			sa(stack);
-		}
-		else if (stack->b[1] > stack->b[0] && stack->b[0] > stack->b[2])
-		{
-			rra(stack);
-		}
-		else if (stack->b[2] > stack->b[0] && stack->b[0] > stack->b[1])
-		{
-			sa(stack);
-		}
+		sa(s);
+		rra(s);
 	}
+	if (s->a[0] > s->a[1] && s->a[0] > s->a[2] && s->a[1] < s->a[2])
+		ra(s);
+	if (s->a[0] < s->a[1] && s->a[0] < s->a[2] && s->a[1] > s->a[2])
+	{
+		sa(s);
+		ra(s);
+	}
+	if (s->a[0] < s->a[1] && s->a[0] > s->a[2] && s->a[1] > s->a[2])
+		rra(s);
 }
+
+

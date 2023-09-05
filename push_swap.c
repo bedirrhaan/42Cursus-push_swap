@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:39:55 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 16:57:58 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/05 21:23:34 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	ft_push_swap(char **av)
 	if (!stack.b)
 		return ;
 	ft_check_repeat(stack.a, stack.size_a);
+
+	
+	free (stack.a);
+	free (stack.b);
 }
 
 int	main(int ac, char **av)

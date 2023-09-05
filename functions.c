@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:46 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 16:55:54 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/05 21:30:47 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,16 @@ void	ft_check_repeat(int *stack, int size)
 	}
 }
 
-int	check_list(t_stack *stack)
+int	check_sorted(int *array, int size)
 {
 	int	i;
-	int	control;
 
 	i = 0;
-	while (i < stack->size_a)
+	while (i < size)
 	{
-		if (stack->a[i] < stack->a[i + 1])
-			i++;
-		else
-			return (write (1, "Error", 5), 0);
+		if (array[i] > array[i + 1])
+			return (0);
+		i++;
 	}
 	return (1);
 }
