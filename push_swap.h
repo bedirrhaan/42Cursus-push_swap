@@ -6,12 +6,15 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:40:08 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/04 13:25:40 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:54:09 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
 
 typedef struct p_stack
 {
@@ -25,6 +28,7 @@ int		ft_ps_strlen(char **array);
 void	ft_push_swap(char **array);
 int		*ft_ps_atoi(char **array, int size);
 void	ft_check_repeat(int *stack, int size);
+int		check_list(t_stack *stack);
 void	ft_error(int *stack);
 void	sa(t_stack	*stack);
 void	ra(t_stack *stack);
@@ -35,5 +39,7 @@ void	ss(t_stack *stack);
 void	rra(t_stack *stack);
 void	rrb(t_stack *stack);
 void	rrr(t_stack *stack);
+void	quicksort_3a(t_stack *stack);
+void	quicksort_3b(t_stack *stack);
 
 #endif
