@@ -5,9 +5,12 @@ CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -rf
 
 SRC 	=	push_swap.c\
+			functions.c\
 			rules_a.c\
 			rules_b.c\
-			rules.c
+			rules.c\
+			sort.c\
+			sort_func.c\
 
 OBJ		=	$(SRC:.c=.o)
 

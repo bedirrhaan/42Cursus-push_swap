@@ -5,45 +5,141 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/05 12:21:42 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 21:34:24 by bcopoglu         ###   ########.fr       */
+/*   Created: 2023/09/10 15:28:09 by bcopoglu          #+#    #+#             */
+/*   Updated: 2023/09/10 16:11:39 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sort(t_stack *stack)
+int	ft_sort_small_b(t_stack *stack, int len)
 {
-	if (check_sorted(stack->a, stack->size_a) == 0)
+	if (len == 1)
+		pa(stack);
+	else if (len == 2)
 	{
-		if (stack->size_a == 2)
-			sa(&stack);
-		else if (stack->size_a == 3)
-			ft_sort_three(&stack);
-		else
-			ft_quicksort_a();
+		if (stack->b[0] < stack->b[1])
+			sb(stack);
+		while (len--)
+			pa(stack);
+	}
+	else if (len == 3)
+	{
+		while (len || !(stack->a[0] < stack->a[1] && stack->a[1] < stack->a[2]))
+		{
+			if (len == 1 && stack->a[0] > stack->a[1])
+				sa(stack);
+			else if (len == 1 || (len >= 2 && stack->b[0] > stack->b[1])
+				|| (len == 3 && stack->b[0] > stack->b[2]))
+				len = ft_push(stack, len, 1);
+			else
+				sb(stack);
+		}
 	}
 	return (0);
 }
 
-void	ft_sort_three(t_stack *s)
+void	ft_quicksort_3(t_stack *stack, int len)
 {
-	if (s->a[0] > s->a[1] && s->a[0] < s->a[2] && s->a[1] < s->a[2])
-		sa(s);
-	if (s->a[0] > s->a[1] && s->a[0] > s->a[2] && s->a[1] > s->a[2])
+	if (len == 3 && stack->size_a == 3)
+		ft_sort_three(stack);
+	else if (len == 2)
 	{
-		sa(s);
-		rra(s);
+		if (stack->a[0] > stack->a[1])
+			sa(stack);
 	}
-	if (s->a[0] > s->a[1] && s->a[0] > s->a[2] && s->a[1] < s->a[2])
-		ra(s);
-	if (s->a[0] < s->a[1] && s->a[0] < s->a[2] && s->a[1] > s->a[2])
+	else if (len == 3)
 	{
-		sa(s);
-		ra(s);
+		while (len != 3 || !(stack->a[0] < stack->a[1]
+				&& stack->a[1] < stack->a[2]))
+		{
+			if (len == 3 && stack->a[0] > stack->a[1] && stack->a[2])
+				sa(stack);
+			else if (len == 3 && !(stack->a[2] > stack->a[0]
+					&& stack->a[2] > stack->a[1]))
+				len = ft_push(stack, len, 0);
+			else if (stack->a[0] > stack->a[1])
+				sa(stack);
+			else if (len++)
+				pa(stack);
+		}
 	}
-	if (s->a[0] < s->a[1] && s->a[0] > s->a[2] && s->a[1] > s->a[2])
-		rra(s);
 }
 
+int	ft_get_middle(int *pivot, int *stack_a, int size)
+{
+	int	i;
+	int	*tmp;
 
+	tmp = (int *)malloc(sizeof(int) * size);
+	if (!tmp)
+		return (0);
+	i = 0;
+	while (i < size)
+	{
+		tmp[i] = stack_a[i];
+		i++;
+	}
+	ft_sort_int_tmp(tmp, size);
+	*pivot = tmp[size / 2];
+	free(tmp);
+	return (1);
+}
+
+int	ft_quicksort_a(t_stack *stack, int len, int count)
+{
+	int	pivot;
+	int	items;
+
+	if (check_sorted(stack->a, len) == 1)
+		return (1);
+	items = len;
+	if (len <= 3)
+	{
+		ft_quicksort_3(stack, len);
+		return (1);
+	}
+	if (!ft_get_middle(&pivot, stack->a, len))
+		return (0);
+	while (len != items / 2 + items % 2)
+	{
+		if (stack->a[0] < pivot && (len--))
+			pb(stack);
+		else if (++count)
+			ra(stack);
+	}
+	while (items / 2 + items % 2 != stack->size_a && count--)
+		rra(stack);
+	return (ft_quicksort_a(stack, items / 2 + items % 2, 0)
+		&& ft_quicksort_b(stack, items / 2, 0));
+	return (1);
+}
+
+int	ft_quicksort_b(t_stack *stack, int len, int count)
+{
+	int	pivot;
+	int	items;
+
+	if (!count && check_sorted(stack->b, len) == 1)
+		while (len--)
+			pa(stack);
+	if (len <= 3)
+	{
+		ft_sort_small_b(stack, len);
+		return (1);
+	}
+	items = len;
+	if (!ft_get_middle(&pivot, stack->b, len))
+		return (0);
+	while (len != items / 2)
+	{
+		if (stack->b[0] >= pivot && len--)
+			pa(stack);
+		else if (++count)
+			rrb(stack);
+	}
+	while (items / 2 != stack->size_b && count--)
+		rrb(stack);
+	return (ft_quicksort_a(stack, items / 2 + items % 2, 0)
+		&& ft_quicksort_b(stack, items / 2, 0));
+}

@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:39:55 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 21:23:34 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/10 16:13:04 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 void	ft_push_swap(char **av)
 {
 	t_stack	stack;
+	int		size;
 
 	stack.size_a = ft_ps_strlen(av);
 	stack.a = ft_ps_atoi(av, stack.size_a);
@@ -27,9 +28,9 @@ void	ft_push_swap(char **av)
 	stack.b = malloc(sizeof(int) * stack.size_a);
 	if (!stack.b)
 		return ;
+	size = stack.size_a;
 	ft_check_repeat(stack.a, stack.size_a);
-
-	
+	ft_sort(&stack, size);
 	free (stack.a);
 	free (stack.b);
 }
