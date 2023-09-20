@@ -6,14 +6,13 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:39:55 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/19 14:16:18 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:10:37 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 void	ft_push_swap(char **av)
 {

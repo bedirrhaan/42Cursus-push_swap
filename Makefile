@@ -29,31 +29,23 @@ BONUS_OBJS = $(BONUS_FILES:.c=.o)
 
 
 $(NAME): $(OBJS_1) $(OBJS_2)
-	@make -C $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(LIBFTM) -o $(NAME)
-	@echo "\n\033[33mPush_swap is ready ✅\033[0m\n"
+	make -C $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS_1) $(OBJS_2) $(LIBFTM) -o $(NAME)
 
 $(BONUS_NAME): $(BONUS_OBJS) $(OBJS_2)
-	@$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(LIBFTM) -o $(BONUS_NAME)
-	@echo "\n\033[33mChecker is ready ✅\033[0m\n"
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(OBJS_2) $(LIBFTM) -o $(BONUS_NAME)
 
 all: $(NAME) $(BONUS_NAME)
-	@echo "\n\033[33mAll files compiled successfully ✅\033[0m\n"
 
 bonus: ${BONUS_NAME}
-	@echo "\n\033[33mBonus files compiled successfully ✅\033[0m\n"
 
-clean: pic
-		@rm -f $(OBJS_1) $(OBJS_2) $(BONUS_OBJS)
-		@make clean -C $(LIBFT)
-		@echo "\n\033[33mObjects files deleted ✅\033[0m\n"
+clean: 
+		rm -f $(OBJS_1) $(OBJS_2) $(BONUS_OBJS)
+		make clean -C $(LIBFT)
 
 fclean: clean
-		@make fclean -C $(LIBFT)
-		@rm -rf $(NAME) $(BONUS_NAME)
-		@echo "\n\033[33mArchive file deleted ✅\033[0m\n"
+		make fclean -C $(LIBFT)
+		rm -rf $(NAME) $(BONUS_NAME)
 
 re: fclean all
 
-pic :
-		@echo "\033[1;33m     .--..--..--..--..--..--.			"

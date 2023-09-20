@@ -6,11 +6,13 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:23:49 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 20:23:52 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:16:29 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 static int	ft_sstrchr(char *str)
 {

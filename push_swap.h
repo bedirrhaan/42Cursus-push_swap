@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:40:08 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 20:29:25 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:15:43 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-# include <stdlib.h>
-# include <unistd.h>
-# include <fcntl.h>
-# include <stdarg.h>
-# include "./libft/libft.h"
 
 typedef struct p_stack
 {

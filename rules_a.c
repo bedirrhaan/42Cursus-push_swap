@@ -6,14 +6,12 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:39 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/19 14:39:13 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:10:20 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 #include <unistd.h>
-#include <stdio.h>
 
 void	sa(t_stack	*stack, int print)
 {

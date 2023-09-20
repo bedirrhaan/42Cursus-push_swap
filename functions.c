@@ -6,13 +6,13 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:46 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 20:39:59 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:15:35 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "push_swap.h"
 #include "libft/libft.h"
+#include "push_swap.h"
 
 void	ft_error(int *stack)
 {

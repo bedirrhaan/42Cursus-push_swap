@@ -6,11 +6,12 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 15:28:09 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 19:32:32 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:08:25 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdlib.h>
 
 int	ft_sort_small_b(t_stack *stack, int len)
 {

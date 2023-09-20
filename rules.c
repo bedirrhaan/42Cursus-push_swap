@@ -6,13 +6,12 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:48:38 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/19 14:38:52 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 23:09:37 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
-#include <stdio.h>
 
 void	ss(t_stack *stack, int print)
 {
