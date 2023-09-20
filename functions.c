@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:46 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/10 15:44:58 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:39:59 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,16 @@ void	ft_error(int *stack)
 	free (stack);
 	write (1, "Error", 5);
 	exit(1);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		++i;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 int	ft_ps_strlen(char **array)
@@ -66,18 +76,4 @@ void	ft_check_repeat(int *stack, int size)
 		i++;
 		j = i + 1;
 	}
-}
-
-int	check_sorted(int *array, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		if (array[i] > array[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
 }

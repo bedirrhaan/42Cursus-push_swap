@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:13:09 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/04 13:46:18 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:37:27 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft/libft.h"
 #include <unistd.h>
 
-void	sb(t_stack *stack)
+void	sb(t_stack *stack, int print)
 {
 	int	swap;
 
@@ -24,10 +24,11 @@ void	sb(t_stack *stack)
 	swap = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = swap;
-	write (1, "sb\n", 3);
+	if (print == 1)
+		write (1, "sb\n", 3);
 }
 
-void	pb(t_stack *stack)
+void	pb(t_stack *stack, int print)
 {
 	int	i;
 
@@ -45,11 +46,12 @@ void	pb(t_stack *stack)
 			stack->a[i] = stack->a[i + 1];
 			i++;
 		}
-		write (1, "pb\n", 3);
+		if (print == 1)
+			write (1, "pb\n", 3);
 	}
 }
 
-void	rb(t_stack *stack)
+void	rb(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -63,10 +65,11 @@ void	rb(t_stack *stack)
 		i++;
 	}
 	stack->b[i - 1] = swap;
-	write (1, "rb\n", 3);
+	if (print == 1)
+		write (1, "rb\n", 3);
 }
 
-void	rrb(t_stack *stack)
+void	rrb(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -76,5 +79,6 @@ void	rrb(t_stack *stack)
 	while (--i >= 0)
 		stack->b[i + 1] = stack->b[i];
 	stack->b[0] = swap;
-	write (1, "rrb\n", 4);
+	if (print == 1)
+		write (1, "rrb\n", 4);
 }

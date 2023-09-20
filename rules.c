@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 19:48:38 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/04 13:45:59 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:38:52 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void	ss(t_stack *stack)
+void	ss(t_stack *stack, int print)
 {
 	int	swap;
 
@@ -33,10 +33,11 @@ void	ss(t_stack *stack)
 	swap = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = swap;
-	write (1, "ss\n", 3);
+	if (print == 1)
+		write (1, "ss\n", 3);
 }
 
-void	rr(t_stack *stack)
+void	rr(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -59,10 +60,11 @@ void	rr(t_stack *stack)
 		i++;
 	}
 	stack->b[i - 1] = swap;
-	write (1, "rr\n", 3);
+	if (print == 1)
+		write (1, "rr\n", 3);
 }
 
-void	rrr(t_stack *stack)
+void	rrr(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -77,5 +79,6 @@ void	rrr(t_stack *stack)
 	while (--i >= 0)
 		stack->b[i + 1] = stack->b[i];
 	stack->b[0] = swap;
-	write (1, "rrr\n", 4);
+	if (print == 1)
+		write (1, "rrr\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 18:57:39 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/05 16:10:43 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/19 14:39:13 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void	sa(t_stack	*stack)
+void	sa(t_stack	*stack, int print)
 {
 	int	swap;
 
@@ -28,10 +28,11 @@ void	sa(t_stack	*stack)
 	swap = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = swap;
-	write (1, "sa\n", 3);
+	if (print == 1)
+		write (1, "sa\n", 3);
 }
 
-void	pa(t_stack *stack)
+void	pa(t_stack *stack, int print)
 {
 	int	i;
 
@@ -49,11 +50,12 @@ void	pa(t_stack *stack)
 			stack->b[i] = stack->b[i + 1];
 			i++;
 		}
-		write (1, "pa\n", 3);
+		if (print == 1)
+			write (1, "pa\n", 3);
 	}
 }
 
-void	ra(t_stack *stack)
+void	ra(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -67,10 +69,11 @@ void	ra(t_stack *stack)
 		i++;
 	}
 	stack->a[i - 1] = swap;
-	write (1, "ra\n", 3);
+	if (print == 1)
+		write (1, "ra\n", 3);
 }
 
-void	rra(t_stack *stack)
+void	rra(t_stack *stack, int print)
 {
 	int	i;
 	int	swap;
@@ -80,5 +83,6 @@ void	rra(t_stack *stack)
 	while (--i >= 0)
 		stack->a[i + 1] = stack->a[i];
 	stack->a[0] = swap;
-	write (1, "rra\n", 4);
+	if (print == 1)
+		write (1, "rra\n", 4);
 }
