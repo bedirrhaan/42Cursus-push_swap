@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:21:42 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 20:40:23 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:58:30 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ int	check_sorted(int *array, int size)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	while (i < size)
 	{
-		if (array[i] > array[i + 1])
+		if (array[i - 1] > array[i])
 			return (0);
 		i++;
 	}

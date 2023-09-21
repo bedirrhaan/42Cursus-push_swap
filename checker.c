@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 19:33:52 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 23:14:52 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/21 20:47:34 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,12 @@ void	ft_checker(char **av)
 	stack.size_a = ft_ps_strlen(av);
 	stack.a = ft_ps_atoi(av, stack.size_a);
 	if (!stack.a)
-	{
-		free(stack.a);
 		return ;
-	}
 	stack.size_b = 0;
 	stack.b = malloc(sizeof(int) * stack.size_a);
 	if (!stack.b)
 	{
 		free (stack.a);
-		free (stack.b);
 		return ;
 	}
 	size = stack.size_a;

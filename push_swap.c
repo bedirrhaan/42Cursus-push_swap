@@ -6,7 +6,7 @@
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 23:39:55 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 23:10:37 by bcopoglu         ###   ########.fr       */
+/*   Updated: 2023/09/21 20:58:20 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	ft_push_swap(char **av)
 	stack.size_b = 0;
 	stack.b = malloc(sizeof(int) * stack.size_a);
 	if (!stack.b)
+	{
+		free (stack.a);
 		return ;
+	}
 	size = stack.size_a;
 	ft_check_repeat(stack.a, stack.size_a);
 	ft_sort(&stack, size);

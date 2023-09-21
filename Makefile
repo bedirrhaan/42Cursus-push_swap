@@ -39,7 +39,7 @@ all: $(NAME) $(BONUS_NAME)
 
 bonus: ${BONUS_NAME}
 
-clean: 
+clean:
 		rm -f $(OBJS_1) $(OBJS_2) $(BONUS_OBJS)
 		make clean -C $(LIBFT)
 
