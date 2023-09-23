@@ -5,79 +5,66 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 19:48:38 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 23:09:37 by bcopoglu         ###   ########.fr       */
+/*   Created: 2023/09/23 12:42:08 by bcopoglu          #+#    #+#             */
+/*   Updated: 2023/09/23 12:54:56 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include <unistd.h>
+#include "push_swap.h"
 
-void	ss(t_stack *stack, int print)
+void	ss(t_stack	*stack, int print)
 {
-	int	swap;
+	int	tmp;
 
-	swap = 0;
-	if (stack->size_a < 2)
-	{
-		write (1, "A few argument", 14);
-		return ;
-	}
-	swap = stack->a[0];
+	tmp = 0;
+	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
-	stack->a[1] = swap;
-	swap = 0;
-	if (stack->size_b < 2)
-		return ;
-	swap = stack->b[0];
+	stack->a[1] = tmp;
+	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
-	stack->b[1] = swap;
-	if (print == 1)
-		write (1, "ss\n", 3);
+	stack->b[1] = tmp;
+	if (!print)
+		write(1, "ss\n", 3);
 }
 
-void	rr(t_stack *stack, int print)
+void	rr(t_stack	*stack, int print)
 {
-	int	i;
-	int	swap;
+	int	tmp;
+	int	index;
 
-	i = 0;
-	swap = stack->a[i];
-	i++;
-	while (i < stack->size_a)
-	{
-		stack->a[i - 1] = stack->a[i];
-		i++;
-	}
-	stack->a[i - 1] = swap;
-	i = 0;
-	swap = stack->b[i];
-	i++;
-	while (i < stack->size_b)
-	{
-		stack->b[i - 1] = stack->b[i];
-		i++;
-	}
-	stack->b[i - 1] = swap;
-	if (print == 1)
-		write (1, "rr\n", 3);
+	index = 0;
+	tmp = stack->a[index];
+	while (++index < stack->size_a)
+		stack->a[index - 1] = stack->a[index];
+	stack->a[index - 1] = tmp;
+	index = 0;
+	tmp = stack->b[index];
+	while (++index < stack->size_b)
+		stack->b[index - 1] = stack->b[index];
+	stack->b[index - 1] = tmp;
+	if (!print)
+		write(1, "rr\n", 3);
 }
 
 void	rrr(t_stack *stack, int print)
 {
-	int	i;
-	int	swap;
+	register int	tmp;
+	register int	index;
 
-	swap = stack->a[stack->size_a - 1];
-	i = stack->size_a;
-	while (--i >= 0)
-		stack->a[i + 1] = stack->a[i];
-	stack->a[0] = swap;
-	swap = stack->b[stack->size_b - 1];
-	i = stack->size_b;
-	while (--i >= 0)
-		stack->b[i + 1] = stack->b[i];
-	stack->b[0] = swap;
-	if (print == 1)
-		write (1, "rrr\n", 4);
+	index = stack->size_a - 1;
+	tmp = stack->a[index];
+	while (index)
+	{
+		stack->a[index] = stack->a[index - 1];
+		index--;
+	}
+	stack->a[index] = tmp;
+	index = stack->size_b - 1;
+	tmp = stack->b[index];
+	while (index--)
+		stack->b[index] = stack->b[index - 1];
+	stack->b[index] = tmp;
+	if (!print)
+		write(1, "rrr\n", 4);
 }

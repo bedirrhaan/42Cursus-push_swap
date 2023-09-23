@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 20:23:49 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 23:16:29 by bcopoglu         ###   ########.fr       */
+/*   Created: 2023/09/23 12:40:45 by bcopoglu          #+#    #+#             */
+/*   Updated: 2023/09/23 12:59:01 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include "push_swap.h"
 
 static int	ft_sstrchr(char *str)
 {

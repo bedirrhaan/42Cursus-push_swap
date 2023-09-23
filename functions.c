@@ -5,21 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: bcopoglu <bcopoglu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 18:57:46 by bcopoglu          #+#    #+#             */
-/*   Updated: 2023/09/20 23:15:35 by bcopoglu         ###   ########.fr       */
+/*   Created: 2023/09/23 12:43:25 by bcopoglu          #+#    #+#             */
+/*   Updated: 2023/09/23 13:02:49 by bcopoglu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include <stdlib.h>
-#include "libft/libft.h"
-#include "push_swap.h"
-
-void	ft_error(int *stack)
-{
-	free (stack);
-	write (1, "Error", 5);
-	exit(1);
-}
 
 int	ft_strcmp(char *s1, char *s2)
 {
@@ -31,31 +23,48 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
-int	ft_ps_strlen(char **array)
+void	ft_error(int *stack)
+{
+	free (stack);
+	write(1, "Error", 5);
+	exit (1);
+}
+
+int	ft_ps_strlen(char **str)
 {
 	int	i;
 
 	i = 0;
-	while (array[i])
+	while (str[i])
 		i++;
 	return (i);
 }
 
-int	*ft_ps_atoi(char **array, int size)
+int	ft_ps_atoi(char *str, int *stack)
 {
-	int		i;
-	t_stack	atoi;
+	unsigned int		i;
+	int					neg;
+	unsigned long int	num;
 
-	atoi.a = malloc(sizeof(int) * size);
-	if (!atoi.a)
-		return (NULL);
 	i = 0;
-	while (array[i])
+	num = 0;
+	neg = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		neg = -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i])
 	{
-		atoi.a[i] = ft_atoi(array[i]);
+		if (str[i] < '0' || str[i] > '9')
+			ft_error(stack);
+		num = (str[i] - '0') + (num * 10);
 		i++;
 	}
-	return (atoi.a);
+	if ((num > 2147483648 && neg == -1) || (num > 2147483647 && neg == 1))
+		ft_error(stack);
+	return (num * neg);
 }
 
 void	ft_check_repeat(int *stack, int size)
